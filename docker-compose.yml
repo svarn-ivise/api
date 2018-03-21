@@ -1,0 +1,21 @@
+version: '2'
+services:
+  app1:
+    build: .
+    volumes:
+     - .:/app1/
+    restart: always
+    ports:
+     - 8080
+    environment:
+     - SERVICE_PORTS=8080
+  lb:
+    image: 'dockercloud/haproxy:1.2.1'
+    links:
+     - app1
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - BALANCE=leastconn
