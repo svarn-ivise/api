@@ -8,6 +8,11 @@ y <- 100 + -log10(x)*20 #+ rnorm(length(x),sd=.75)
 price_model <- lm(data=data.frame(x, y)[-1,], 
             formula=y ~ poly(x, 2, raw=TRUE))
 
+#* @get /echo
+function(msg=""){
+  list(msg = paste0("The message is: '", msg, "'"))
+}
+
 #' Return msg
 #' @get /dynamic
 function(date,seats,searches){
