@@ -1,5 +1,7 @@
 library(plumber)
 
+sql.db.ip <- "0.0.0.0"
+
 n <- 100
 start <- .1
 end <- .5
