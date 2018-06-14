@@ -1,7 +1,7 @@
 library(plumber)
 library(RMySQL)
 
-sql.db.ip <- "0.0.0.0"
+sql.db.ip <- 0.0.0.0
 
 append.data <- function(df, table.name){
 
