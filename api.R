@@ -1,6 +1,21 @@
 library(plumber)
+library(RMySQL)
 
 sql.db.ip <- "0.0.0.0"
+
+append.data <- function(df, table.name){
+
+con <-  dbConnect(RMySQL::MySQL(),
+                  username = "shane",
+                  password = "S13240sx91",
+                  host = sql.db.ip,
+                  dbname="dynamic",
+                  port = 3306)
+
+dbWriteTable(con, table.name, df, append = TRUE)
+
+dbDisconnect(con)
+}
 
 n <- 100
 start <- .1
@@ -33,6 +48,9 @@ function(date,seats,searches){
   x <- list(x=as.numeric(cr))
   price <- as.numeric(predict(price_model, x))
   
+  df <- data.frame(Date = c(date), Seats = c(seats) , Days = c(days), Conversion = c(cr), Price = c(price))
+  append.data(df, "dynamic")
+            
   return(list(cr=cr,price=price))
   #return(paste0("To attain a conversion ratio of ",cr,", Price should be equal to $",price))
 }
