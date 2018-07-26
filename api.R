@@ -12,7 +12,7 @@ con <-  dbConnect(RMySQL::MySQL(),
                   dbname="dynamic",
                   port = 3306)
 
-dbWriteTable(con, table.name, df, append = TRUE)
+dbWriteTable(con, table.name, df, append = TRUE, row.names=F)
 
 dbDisconnect(con)
 }
