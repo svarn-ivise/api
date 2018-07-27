@@ -71,3 +71,21 @@ function(load, upper, lower, base, size){
   
   return(list(price = df$price, load = df$load))
 }
+
+#' Return randomPrice
+#' @get /price
+function(date){
+
+}
+
+#' Return randomPrice
+#' @get /purchase
+function(quantity, date){
+  
+  date <- as.Date(date)
+  
+  df <- data.frame(Date = c(date), Quantity = c(quantity) , Time = c(Sys.time()))
+  
+  append.data(df, "dynamic", row.names=F)
+  
+}
