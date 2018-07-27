@@ -88,4 +88,6 @@ function(quantity, date){
   
   append.data(df, "trans", row.names=F)
   
+  return(paste0("Purchase complete; ",quantity," seats bought for ",date))
+  
 }
