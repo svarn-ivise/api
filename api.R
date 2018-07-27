@@ -86,6 +86,6 @@ function(quantity, date){
   
   df <- data.frame(Date = c(date), Quantity = c(quantity) , Time = c(Sys.time()))
   
-  append.data(df, "dynamic", row.names=F)
+  append.data(df, "trans", row.names=F)
   
 }
