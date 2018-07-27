@@ -82,9 +82,9 @@ function(date){
 #' @get /purchase
 function(quantity, date){
   
-  date <- as.Date(date)
+  purch.date <- as.Date(date)
   
-  df <- data.frame(Date = c(date), Quantity = c(quantity) , Time = c(Sys.time()))
+  df <- data.frame(Date = c(purch.date), Quantity = c(quantity) , Time = c(Sys.time()))
   
   append.data(df, "trans", row.names=F)
   
