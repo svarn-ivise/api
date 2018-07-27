@@ -82,13 +82,12 @@ function(date){
 #' @get /purchase
 function(quantity, date){
   
-  #purch.date <- as.Date(date)
+  purch.date <- as.Date(date)
   
-  #df <- data.frame(Date = c(purch.date), Quantity = c(quantity) , Time = c(Sys.time()))
+  df <- data.frame(Date = c(purch.date), Quantity = c(quantity) , Time = c(Sys.time()))
   
-  #append.data(df, "trans", row.names=F)
+  append.data(df, "trans")
   
-  #return(paste0("Purchase complete; ",quantity," seats bought for ",date))
-  return("test")
+  return(paste0("Purchase complete; ",quantity," seats bought for ",date))
   
 }
