@@ -20,11 +20,7 @@ dbDisconnect(con)
 
 #* @POST /updateModel
 function(req, id, name){
-  list(
-    id = id,
-    name = name,
-    raw = req$postBody
-  )
+  return(unserialize(memDecompress(req$postBody, "gzip")))
 }
 
 
