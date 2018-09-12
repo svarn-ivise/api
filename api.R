@@ -1,5 +1,6 @@
 library(plumber)
 library(RMySQL)
+library(jsonlite)
 
 sql.db.ip <- 0.0.0.0
 
@@ -16,6 +17,16 @@ dbWriteTable(con, table.name, df, append = TRUE, row.names=F)
 
 dbDisconnect(con)
 }
+
+#* @POST /updateModel
+function(req, id, name){
+  list(
+    id = id,
+    name = name,
+    raw = req$postBody
+  )
+}
+
 
 n <- 100
 start <- .1
