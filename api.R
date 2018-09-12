@@ -17,7 +17,7 @@ dbWriteTable(con, table.name, df, append = TRUE, row.names=F)
 dbDisconnect(con)
 }
 
-#* @POST /updateModel
+#* @post /updateModel
 function(req, id, name){
   return(unserialize(memDecompress(req$postBody, "gzip")))
 }
