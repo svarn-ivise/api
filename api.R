@@ -1,7 +1,9 @@
 library(plumber)
 library(RMySQL)
+library(ranger)
+library(jsonlite)
 
-sql.db.ip <- 0.0.0.0
+sql.db.ip <- '178.128.156.253'
 
 append.data <- function(df, table.name){
 
@@ -19,7 +21,7 @@ dbDisconnect(con)
 
 #* @post /updateModel
 function(req, id, name){
-  return(unserialize(memDecompress(req$postBody, "gzip")))
+  return(unserializeJSON(req$postBody)$num.trees)
 }
 
 
