@@ -3,7 +3,7 @@ library(RMySQL)
 library(ranger)
 library(jsonlite)
 
-sql.db.ip <- '/0.0.0.0/'
+sql.db.ip <- 0.0.0.0
 
 append.data <- function(df, table.name){
 
