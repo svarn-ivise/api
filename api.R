@@ -5,6 +5,10 @@ library(jsonlite)
 
 sql.db.ip <- 0.0.0.0
 
+model <- readRDS("/app/test.rds")
+model <- memDecompress(model, "gzip")
+model <- unserialize(model)
+
 append.data <- function(df, table.name){
 
 con <-  dbConnect(RMySQL::MySQL(),
@@ -19,9 +23,9 @@ dbWriteTable(con, table.name, df, append = TRUE, row.names=F)
 dbDisconnect(con)
 }
 
-#* @post /updateModel
-function(req, id, name){
-  return(unserializeJSON(req$postBody)$num.trees)
+#* @post /testModel
+function(){
+  return(model$num.trees)
 }
 
 
