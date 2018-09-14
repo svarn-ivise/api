@@ -5,7 +5,7 @@ library(jsonlite)
 
 sql.db.ip <- 0.0.0.0
 
-model <- readRDS("/app/rf.rds")
+model <- readRDS("/rf.rds")
 
 append.data <- function(df, table.name){
 
