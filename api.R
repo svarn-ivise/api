@@ -23,11 +23,23 @@ dbWriteTable(con, table.name, df, append = TRUE, row.names=F)
 dbDisconnect(con)
 }
 
-#* @post /testModel
+#* @get /testModel
 function(){
   return(model$num.trees)
 }
 
+#* @get /prediction
+function(bookdt, traveldt, cumulative){
+  
+ rf.pred <- predictions(predict(rf_model, data.frame(Lead.Time = as.numeric(as.Date(traveldt) - as.Date(bookdt)),
+                                  Booking.Month = as.numeric(format(as.Date(bookdt),"%m")),
+                                  Travel.Month = as.numeric(format(as.Date(traveldt),"%m")),
+                                  Travel.Year = as.numeric(format(as.Date(traveldt),"%Y")),
+                                  Travel.Weekday = as.numeric(format(as.Date(traveldt),"%w")),
+                                  Cumulative = cumulative)))
+  return(rf.pred)
+  
+  }
 
 n <- 100
 start <- .1
