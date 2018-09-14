@@ -3,7 +3,7 @@ services:
   api:
     build: .
     volumes:
-     - .:/
+     - .:/app/
     restart: always
     ports:
      - 8080

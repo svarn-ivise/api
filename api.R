@@ -3,9 +3,9 @@ library(RMySQL)
 library(ranger)
 library(jsonlite)
 
-sql.db.ip <- 0.0.0.0
+sql.db.ip <- '178.128.156.253'
 
-model <- readRDS("/rf.rds")
+model <- readRDS("/app/rf.rds")
 
 append.data <- function(df, table.name){
 
