@@ -5,7 +5,7 @@ library(jsonlite)
 
 sql.db.ip <- '178.128.156.253'
 
-model <- readRDS("/app/rf.rds")
+model <- readRDS("/models/rf.rds")
 
 append.data <- function(df, table.name){
 
@@ -29,7 +29,7 @@ function(){
 #* @get /prediction
 function(bookdt, traveldt, cumulative){
   
- rf.pred <- predictions(predict(rf_model, data.frame(Lead.Time = as.numeric(as.Date(traveldt) - as.Date(bookdt)),
+ rf.pred <- predictions(predict(model, data.frame(Lead.Time = as.numeric(as.Date(traveldt) - as.Date(bookdt)),
                                   Booking.Month = as.numeric(format(as.Date(bookdt),"%m")),
                                   Travel.Month = as.numeric(format(as.Date(traveldt),"%m")),
                                   Travel.Year = as.numeric(format(as.Date(traveldt),"%Y")),
