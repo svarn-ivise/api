@@ -1,9 +1,9 @@
 version: '2'
 services:
-  app1:
+  api:
     build: .
     volumes:
-     - .:/app1/
+     - .:/
     restart: always
     ports:
      - 8080
@@ -12,7 +12,7 @@ services:
   lb:
     image: 'dockercloud/haproxy:1.2.1'
     links:
-     - app1
+     - api
     ports:
       - 80:80
     volumes:
