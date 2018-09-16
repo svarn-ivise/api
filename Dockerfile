@@ -9,6 +9,4 @@ RUN R -e 'install.packages("ranger",dependencies=T)'
 RUN mkdir -p /app/
 WORKDIR /app/
 COPY api.R /app/
-#COPY rf.rds /app/
 CMD ["/app/api.R"]
-#CMD ["/api.R"]
