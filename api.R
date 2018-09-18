@@ -3,7 +3,7 @@ library(RMySQL)
 library(ranger)
 library(jsonlite)
 
-sql.db.ip <- 0.0.0.0
+db.ip <- 0.0.0.0
 
 model <- readRDS("/models/rf.rds")
 
@@ -12,7 +12,7 @@ append.data <- function(df, table.name){
 con <-  dbConnect(RMySQL::MySQL(),
                   username = "shane",
                   password = "S13240sx91",
-                  host = sql.db.ip,
+                  host = db.ip,
                   dbname="dynamic",
                   port = 3306)
 
