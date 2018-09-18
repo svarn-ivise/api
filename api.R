@@ -1,7 +1,6 @@
 library(plumber)
 library(RMySQL)
 library(ranger)
-library(jsonlite)
 
 db.ip <- 0.0.0.0
 
