@@ -27,7 +27,7 @@ function(){
 
 #* @get /updateModel
 function(){
-  model <- readRDS("/models/rf.rds")
+  model <<- readRDS("/models/rf.rds")
   return("Model updated")
 }
 
