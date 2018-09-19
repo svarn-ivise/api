@@ -25,6 +25,12 @@ function(){
   return(model$num.trees)
 }
 
+#* @get /updateModel
+function(){
+  model <- readRDS("/models/rf.rds")
+  return("Model updated")
+}
+
 #* @get /prediction
 function(bookdt, traveldt, cumulative){
   
