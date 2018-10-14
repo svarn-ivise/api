@@ -11,7 +11,7 @@ services:
       MYSQL_PASSWORD: "S13240sx91"
       MYSQL_DATABASE: "dynamic"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - /storage/docker/mysql-datadir:/var/lib/mysql
     restart: always
     networks:
       - mysql_net
