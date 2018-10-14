@@ -42,3 +42,8 @@ services:
       - BALANCE=leastconn
     networks:
      - mysql_net
+     
+networks:
+  mysql_net:
+    driver: bridge
+
