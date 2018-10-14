@@ -5,6 +5,8 @@ services:
     container_name: mysql-drupal
     environment:
       MYSQL_ROOT_PASSWORD: "mypassword"
+      MYSQL_USER: "shane"
+      MYSQL_PASSWORD: "S13240sx91"
       MYSQL_DATABASE: "dynamic"
     volumes:
       - mysql_data:/var/lib/mysql
