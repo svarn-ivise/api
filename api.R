@@ -27,6 +27,11 @@ function(){
   return(model$num.trees)
 }
 
+#* @get /testModel2
+function(){
+  return(as.numeric(model$num.trees) + 1)
+}
+
 #* @get /updateModel
 function(){
   model <<- readRDS("/models/rf.rds")
