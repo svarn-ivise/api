@@ -2,6 +2,8 @@ library(plumber)
 library(RMySQL)
 library(ranger)
 
+##TEST
+
 db.ip <- "mysql" #0.0.0.0
 
 model <- readRDS("/models/rf.rds")
