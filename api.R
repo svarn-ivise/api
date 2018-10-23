@@ -27,7 +27,7 @@ function(){
   return(model$num.trees)
 }
 
-#* @get /testModel22
+#* @get /testModel2
 function(){
   return(as.numeric(model$num.trees) + 1)
 }
