@@ -27,6 +27,12 @@ dbWriteTable(con, table.name, df, append = TRUE, row.names=F)
 dbDisconnect(con)
 }
 
+#* @get /ls
+function(){
+  return(ls())
+}
+
+
 #* @get /testModel
 function(){
   return(model$num.trees)
