@@ -37,9 +37,9 @@ function(purchase.date, travel.date,cumulative,service,capacity){
   
   price <- Price_recommendation(Travel.Date = travel.date,
                        Purchase.Date = Sys.Date(),  
-                       cumsum.previous = 3,
-                       Service = 'ICZMZM',
-                       capacity = 15)
+                       cumsum.previous = cumulative,
+                       Service = service,
+                       capacity = capacity)
   
   return(price)
   
