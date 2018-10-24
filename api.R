@@ -11,7 +11,8 @@ Price_recommendation <- readRDS("/models/dynamic.rds")
 
 lm_with_Price <- attr(Price_recommendation,'model') 
 holidays <- attr(Price_recommendation,'holidays') 
-school <- attr(Price_recommendation,'school') 
+school <- attr(Price_recommendation,'school')
+mod.version <- attr(Price_recommendation,'version')
 
 append.data <- function(df, table.name){
 
@@ -27,9 +28,9 @@ dbWriteTable(con, table.name, df, append = TRUE, row.names=F)
 dbDisconnect(con)
 }
 
-#* @get /ls
+#* @get /version
 function(){
-  return(ls())
+  return(mod.version)
 }
 
 
