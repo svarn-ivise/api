@@ -7,7 +7,7 @@ library(ranger)
 db.ip <- "mysql"
 
 model <- readRDS("/models/rf.rds")
-load("/models/dynamic.Rdata")
+Price_recommendation <- readRDS("/models/dynamic.rds")
 
 lm_with_Price <- attr(Price_recommendation,'model') 
 holidays <- attr(Price_recommendation,'holidays') 
