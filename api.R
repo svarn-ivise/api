@@ -44,9 +44,10 @@ function(purchase.date, travel.date,cumulative,service,capacity){
   
   cumulative <- as.numeric(cumulative)
   travel.date <- as.Date(travel.date)
+  purchase.date <- as.Date(purchase.date)
   
   price <- Price_recommendation(Travel.Date = travel.date,
-                       Purchase.Date = Sys.Date(),  
+                       Purchase.Date = purchase.date  
                        cumsum.previous = cumulative,
                        Service = service,
                        capacity = capacity)
