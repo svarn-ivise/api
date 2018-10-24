@@ -4,9 +4,14 @@ library(ranger)
 
 ##TEST
 
-db.ip <- "mysql" #0.0.0.0
+db.ip <- "mysql"
 
 model <- readRDS("/models/rf.rds")
+load("/models/Price_recommendation.Rdata")
+
+lm_with_Price <- attr(Price_recommendation,'model') 
+holidays <- attr(Price_recommendation,'holidays') 
+school <- attr(Price_recommendation,'school') 
 
 append.data <- function(df, table.name){
 
