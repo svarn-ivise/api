@@ -27,10 +27,18 @@ function(){
   return(model$num.trees)
 }
 
-#* @get /testModel2
-function(){
-  return(as.numeric(model$num.trees) + 1)
-}
+#* @get /dynaprice
+function(purchase.date, travel.date,cumulative,service,capacity){
+  
+  price <- Price_recommendation(Travel.Date = travel.date,
+                       Purchase.Date = Sys.Date(),  
+                       cumsum.previous = 3,
+                       Service = 'ICZMZM',
+                       capacity = 15)
+  
+  return(price)
+  
+  }
 
 #* @get /updateModel
 function(){
