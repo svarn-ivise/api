@@ -9,11 +9,12 @@ db.ip <- "mysql"
 model <- readRDS("/models/rf.rds")
 Price_recommendation <- readRDS("/models/dynamic.rds")
 
-lm_with_Price <- attr(Price_recommendation,'model') 
-holidays <- attr(Price_recommendation,'holidays') 
+lm_with_Price <- attr(Price_recommendation,'model')
+holidays <- attr(Price_recommendation,'holidays')
 school <- attr(Price_recommendation,'school')
 Price <- attr(Price_recommendation,'Price')
-mod.version <- attr(Price_recommendation,'Version')
+Version <- attr(Price_recommendation,'Version')
+
 
 append.data <- function(df, table.name){
 
@@ -31,7 +32,7 @@ dbDisconnect(con)
 
 #* @get /version
 function(){
-  return(mod.version)
+  return(Version)
 }
 
 
@@ -46,6 +47,8 @@ function(purchase.date, travel.date,cumulative,service,capacity){
   cumulative <- as.numeric(cumulative)
   travel.date <- as.Date(travel.date)
   purchase.date <- as.Date(purchase.date)
+  service <- as.character(service)
+  capacity <- as.numeric(capacity)
   
   price <- Price_recommendation(Travel.Date = travel.date,
                        Purchase.Date = purchase.date,
