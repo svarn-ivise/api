@@ -12,7 +12,7 @@ Price_recommendation <- readRDS("/models/dynamic.rds")
 lm_with_Price <- attr(Price_recommendation,'model') 
 holidays <- attr(Price_recommendation,'holidays') 
 school <- attr(Price_recommendation,'school')
-mod.version <- attr(Price_recommendation,'Price')
+Price <- attr(Price_recommendation,'Price')
 mod.version <- attr(Price_recommendation,'Version')
 
 append.data <- function(df, table.name){
