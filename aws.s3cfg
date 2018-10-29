@@ -1,5 +1,5 @@
 [default]
-access_key = TUOWAAA99023990001
+access_key = ${ACCESS_KEY}
 access_token = 
 add_encoding_exts = 
 add_headers = 
@@ -47,7 +47,7 @@ recursive = False
 recv_chunk = 4096 
 reduced_redundancy = False 
 restore_days = 1 
-secret_key = sd/ceP_vbb#eDDDK 
+secret_key = ${SECRET_KEY} 
 send_chunk = 4096 
 server_side_encryption = False 
 simpledb_host = sdb.amazonaws.com 
